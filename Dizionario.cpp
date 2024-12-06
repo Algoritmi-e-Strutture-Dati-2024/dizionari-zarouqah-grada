@@ -55,4 +55,28 @@ public:
             }
         }
     }
+
+ // Metodo per verificare se una chiave è presente nel dizionario
+    bool appartiene(const std::string key) const {
+        int index = hashFunction(key);
+        // Verifica se la posizione è occupata e la chiave corrisponde
+        if (table[index].isOccupied && table[index].key == key) {
+            return true; // La chiave è presente
+        }
+
+        return false; // La chiave non è presente
+    }
+ 
+  // Metodo per rimuovere una coppia dato il valore della chiave
+     void cancella(const std::string key) {
+        int index = hashFunction(key);
+        // Controllimo se la posizione è occupata e se la chiave corrisponde
+        if (table[index].isOccupied && table[index].key == key) {
+            table[index].isOccupied = false; // Rimozione  coppia
+            std::cout << "Deleted key: " << key << "\n";
+            return;
+        }
+        std::cerr << "Key not found: " << key << "\n";
+    }
+
 };
