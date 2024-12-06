@@ -3,7 +3,7 @@
 template <typename T>
 class Dizionario {
 private:
-    static const int TABLE_SIZE = 100; // Dimensione fissa della tabella hash
+    static const int TABLE_SIZE = 100; 
     struct Entry {
         std::string key;
         T value;
@@ -16,7 +16,7 @@ private:
     int hashFunction(const std::string key) const {
         int hash = 0;
         for (char ch : key) {
-            hash = (hash * 31 + ch) % TABLE_SIZE; // Algoritmo di hashing semplice
+            hash = (hash * 31 + ch) % TABLE_SIZE; // Algoritmo di hashing 
         }
         return hash;
     }
@@ -36,7 +36,7 @@ public:
         table[index].isOccupied = true;
     }
 
-    // Metodo per ottenere il valore associato a una chiave
+    // Metodo per ottenere il valore associato 
     T recupera(const std::string key) const {
         int index = hashFunction(key);
 
